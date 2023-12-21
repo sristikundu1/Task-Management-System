@@ -3,6 +3,7 @@ import MainLayOut from "../MainLayOut/MainLayOut";
 import Home from "../Pages/Home/Home";
 import DashBoardLayOut from "../MainLayOut/DashBoardLayOut";
 import CreateTask from "../Pages/DashBoard/CreateTask/CreateTask";
+import TaskList from "../Pages/DashBoard/TaskList/TaskList";
 
 
 const Routes = createBrowserRouter([
@@ -23,6 +24,10 @@ const Routes = createBrowserRouter([
             {
                 path:"addtask",
                 element:<CreateTask></CreateTask>
+            },
+            {
+                path:"tasklist",
+                element:<TaskList></TaskList>
             }
         ]
     }
