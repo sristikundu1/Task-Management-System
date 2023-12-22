@@ -1,7 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { BsPersonCircle } from "react-icons/bs";
+import useAuth from "../../Hooks/useAuth";
 
 const NavBar = () => {
+
+    const { user, logOut } = useAuth()
+
+
+    const handleLogOut = () => {
+        logOut()
+            .then((result) => {
+                console.log(result.user);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+
+    }
 
     const navLinks = <>
         <ul className="flex gap-9 text-lg font-semibold" >
@@ -22,7 +37,7 @@ const NavBar = () => {
                         isPending ? "pending" : isActive ? "text-[#91B029] underline italic" : ''
                     }
                 >
-                   Calendar
+                    Calendar
                 </NavLink>
             </li>
             <li>
@@ -32,7 +47,7 @@ const NavBar = () => {
                         isPending ? "pending " : isActive ? "text-[#91B029] underline italic" : ''
                     }
                 >
-                   Profile
+                    Profile
                 </NavLink>
             </li>
             <li>
@@ -42,7 +57,7 @@ const NavBar = () => {
                         isPending ? "pending " : isActive ? "text-[#91B029] underline italic" : ''
                     }
                 >
-                   Feedback
+                    Feedback
                 </NavLink>
             </li>
         </ul>
@@ -63,7 +78,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="flex ">
-                        {/* <img className="w-10" src="https://i.ibb.co/3Ct59Kb/download.jpg" alt="" /> */}
+                        
                         <h2 className="btn btn-ghost font-bold text-3xl text-[#004b23]">TaskGrid</h2>
                     </div>
                 </div>
@@ -73,24 +88,23 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex flex-col lg:navbar-end lg:flex lg:flex-row ">
-                <BsPersonCircle className="text-5xl mr-4"></BsPersonCircle>
-                <button className="btn bg-[#006400] text-white">Login</button>
-                    {/* {
+                   
+                    {
                         user ? <>
                             <p>{user?.displayName}</p>
                             <img className="w-12 mx-2 rounded-full" src={user?.photoURL} alt="" />
 
-                            <button onClick={handleLogOut} className="bg-[#219C90]  border rounded-lg h-10 w-28 py-1 px-9 font-semibold text-white">LogOut</button>
+                            <button onClick={handleLogOut} className="bg-[#006400]  border rounded-lg h-10 w-28 py-1 px-9 font-semibold text-white">LogOut</button>
 
                         </>
                             :
                             <>
-                                <BsPersonCircle className="text-5xl mr-4 text-[#C37B89]"></BsPersonCircle>
+                                <BsPersonCircle className="text-5xl mr-4"></BsPersonCircle>
                                 <Link to="/login">
-                                    <button className="btn bg-[#91C788] text-white">Login</button>
+                                    <button className="btn bg-[#006400] text-white">Login</button>
                                 </Link>
                             </>
-                    } */}
+                    }
                 </div>
 
 

@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import DashBoardLayOut from "../MainLayOut/DashBoardLayOut";
 import CreateTask from "../Pages/DashBoard/CreateTask/CreateTask";
 import TaskList from "../Pages/DashBoard/TaskList/TaskList";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/SignUp/SignUp";
 
 
 const Routes = createBrowserRouter([
@@ -14,6 +16,14 @@ const Routes = createBrowserRouter([
             {
                 path:"/",
                 element:<Home></Home>
+            },
+            {
+                path:"/login",
+                element:<Login></Login>
+            },
+            {
+                path:"/signup",
+                element:<SignUp></SignUp>
             }
         ]
     },
