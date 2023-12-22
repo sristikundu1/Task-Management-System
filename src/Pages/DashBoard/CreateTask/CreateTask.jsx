@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAuth from "../../../Hooks/useAuth";
 
 const CreateTask = () => {
+    const { user } = useAuth();
+
     const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
 
@@ -11,11 +14,12 @@ const CreateTask = () => {
 
         const taskItem = {
             title: data.title,
+            email: data.email,
             description: data.description,
             deadline: data.deadline,
             priority: data.priority
         }
-        // const endpoint = data.mealType == 'Running' ? 'meals' : 'upcoming'
+     
         console.log(taskItem)
         const taskRes = await axiosPublic.post("/task", taskItem);
 
@@ -43,11 +47,18 @@ const CreateTask = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="w-full flex gap-3">
-                            <div className="w-full">
+                            <div className="w-1/2">
                                 <label className="label">
                                     <span className="label-text text-[#444] font-semibold">Task Title*</span>
                                 </label>
                                 <input {...register("title", { required: true })} required className="w-full h-12 border-2 p-4 pl-5 rounded-lg " placeholder="Task Title..." type="text" name="title" id="title" />
+                            </div>
+
+                            <div className="form-control w-1/2">
+                                <label className="label">
+                                    <span className="label-text text-[#444] font-semibold">Email</span>
+                                </label>
+                                <input {...register("email", { required: true })} required className="w-full h-12 border-2 p-4 pl-5 rounded-lg" defaultValue={user?.email} type="email" name="email" id="email" />
                             </div>
 
                         </div>

@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 
 const Banner = () => {
+    const { user } = useAuth();
+    // const navigate = useNavigate();
+
     return (
         <div>
 
@@ -10,9 +14,19 @@ const Banner = () => {
 
                     <h2 className="font-bold text-6xl mb-10 text-[#AFA939]">Effortless Task Mastery</h2>
 
-                  <Link to="/dashboard">
-                  <button className=" border border-[#006400] text-[#006400] bg-transparent rounded-md px-4 py-2 uppercase font-medium text-xl w-56 mt-10 hover:bg-[#006400] hover:text-white transition duration-300 ease-in-out">Let’s Explore</button>
-                  </Link>
+                    {
+                        user ? <>
+                            <Link to="/dashboard">
+                                <button className=" border border-[#006400] text-[#006400] bg-transparent rounded-md px-4 py-2 uppercase font-medium text-xl w-56 mt-10 hover:bg-[#006400] hover:text-white transition duration-300 ease-in-out">Let’s Explore</button>
+                            </Link>
+                        </> :
+                        <>
+                         <Link to="/login">
+                                <button className=" border border-[#006400] text-[#006400] bg-transparent rounded-md px-4 py-2 uppercase font-medium text-xl w-56 mt-10 hover:bg-[#006400] hover:text-white transition duration-300 ease-in-out">Let’s Explore</button>
+                            </Link>
+                        </>
+                        // navigate("/login")
+                 }
                 </div>
 
                 {/* right side image */}

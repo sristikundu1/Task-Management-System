@@ -30,8 +30,9 @@ const DashBoardLayOut = () => {
 
                 <div id="sidebar" className="sticky top-0 bottom-0 left-0 w-28 h-screen px-10 overflow-hidden transition-all ease-linear bg-[#304D30] hover:w-72 duration-500">
                     <div id="logo" className="h-20 flex gap-2 items-center justify-center mt-4">
-                        <i> <img className="w-8 " src="https://cdn.iconscout.com/icon/premium/png-256-thumb/task-manager-1851416-1573466.png" alt="" /></i>
-                        <h2 className="text-[#B6C4B6] text-4xl font-bold overflow-hidden">TaskGrid</h2>
+                        {/* <i> <img className="w-8 " src="https://cdn.iconscout.com/icon/premium/png-256-thumb/task-manager-1851416-1573466.png" alt="" /></i>
+                        <h2 className="text-[#B6C4B6] text-4xl font-bold overflow-hidden">TaskGrid</h2> */}
+                         <img className="w-24  rounded-full" src={user?.photoURL} alt="" />
                     </div>
                     <ul id="main" className="h-5/6 relative list-none p-0">
                         <NavLink to="/dashboard/addtask">
