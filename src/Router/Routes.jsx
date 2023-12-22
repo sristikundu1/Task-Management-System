@@ -6,6 +6,9 @@ import CreateTask from "../Pages/DashBoard/CreateTask/CreateTask";
 import TaskList from "../Pages/DashBoard/TaskList/TaskList";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import Calender from "../Pages/Calender/Calender";
+import Profile from "../Pages/Profile/Profile";
+import FeedBack from "../Pages/FeedBack/FeedBack";
 
 
 const Routes = createBrowserRouter([
@@ -24,6 +27,18 @@ const Routes = createBrowserRouter([
             {
                 path:"/signup",
                 element:<SignUp></SignUp>
+            },
+            {
+                path:"/calender",
+                element:<Calender></Calender>
+            },
+            {
+                path:"/profile",
+                element:<Profile></Profile>
+            },
+            {
+                path:"/feedback",
+                element:<FeedBack></FeedBack>
             }
         ]
     },
